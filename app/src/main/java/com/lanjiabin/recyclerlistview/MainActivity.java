@@ -52,23 +52,20 @@ public class MainActivity extends AppCompatActivity {
         //设置adapter关联的list
         mRecyclerAdapter = new RecyclerAdapter(this, mList);
 
-        //item单击
-        mRecyclerAdapter.setmOnItemClickListener(new RecyclerAdapter.OnItemClickListener() {
+        //点击事件，单击和长击。缺陷：长按的时候，只有把手放起来，才会触发长按事件。
+        mRecyclerView.addOnItemTouchListener(new RecyclerViewClickListener(this, new RecyclerViewClickListener.OnItemClickListener() {
             @Override
             public void onItemClick(View view, int position) {
                 Toast.makeText(MainActivity.this,"点击了："+position,Toast.LENGTH_SHORT).show();
 
             }
-        });
 
-        //item长按监听
-        mRecyclerAdapter.setmOnItemLongClickListener(new RecyclerAdapter.OnItemLongClickListener() {
             @Override
             public void onItemLongClick(View view, int position) {
                 Toast.makeText(MainActivity.this,"长点击了："+position,Toast.LENGTH_SHORT).show();
-
             }
-        });
+        }));
+
 
         //数据更新
         mRecyclerAdapter.notifyDataSetChanged();
