@@ -27,13 +27,13 @@ public class MainActivity extends AppCompatActivity {
 
     public void initView() {
         //添加测试数据
-        for (int i = 0; i < 100; i++) {
+        for (int i = 0; i < 1000; i++) {
             mList.add(i + " ");
         }
         //布局关联
         mRecyclerView = findViewById(R.id.recyclerListView);
-        //设置布局方向-表格布局
-        mRecyclerView.setLayoutManager(new GridLayoutManager(this,5));
+        //设置布局方向-表格布局-行
+        mRecyclerView.setLayoutManager(new GridLayoutManager(this,5,GridLayoutManager.HORIZONTAL,false));
         //设置item增加和删除时的动画，这里设置默认动画
         mRecyclerView.setItemAnimator(new DefaultItemAnimator());
         //设置adapter关联的list
