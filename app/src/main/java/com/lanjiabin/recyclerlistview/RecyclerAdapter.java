@@ -26,6 +26,11 @@ public class RecyclerAdapter extends RecyclerView.Adapter<RecyclerAdapter.MyView
         notifyItemRemoved(position);
     }
 
+    /**
+     * 该方法会在RecyclerView需要展示一个item的时候回调，
+     * 重写该方法，使ViewHolder加载item的布局，布局复用，提高性能，
+     * 就ListView的优化一样，只不过RecyclerView把这个集成到官方方法中了。
+     * */
     @NonNull
     @Override
     public MyViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
@@ -39,11 +44,17 @@ public class RecyclerAdapter extends RecyclerView.Adapter<RecyclerAdapter.MyView
         return holder;
     }
 
+    /**
+     * 该方法是填充绑定item数据的
+     * */
     @Override
     public void onBindViewHolder(@NonNull MyViewHolder holder, int position) {
         holder.textView.setText(mList.get(position));
     }
 
+    /**
+     * 该方法是返回item的数量。
+     * */
     @Override
     public int getItemCount() {
         return mList.size();
