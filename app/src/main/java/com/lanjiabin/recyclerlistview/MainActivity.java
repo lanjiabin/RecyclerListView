@@ -31,8 +31,8 @@ public class MainActivity extends AppCompatActivity {
         }
         //布局关联
         mRecyclerView = findViewById(R.id.recyclerListView);
-        //设置布局方向-水平布局-不反转
-        mRecyclerView.setLayoutManager(new LinearLayoutManager(this, LinearLayoutManager.HORIZONTAL,false));
+        //设置布局方向-水平布局-反转
+        mRecyclerView.setLayoutManager(new LinearLayoutManager(this, LinearLayoutManager.HORIZONTAL,true));
         //设置item增加和删除时的动画，这里设置默认动画
         mRecyclerView.setItemAnimator(new DefaultItemAnimator());
         //设置adapter关联的list
