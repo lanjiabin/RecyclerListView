@@ -1,15 +1,13 @@
 package com.lanjiabin.recyclerlistview;
 
 import androidx.appcompat.app.AppCompatActivity;
-import androidx.core.content.ContextCompat;
 import androidx.recyclerview.widget.DefaultItemAnimator;
-import androidx.recyclerview.widget.DividerItemDecoration;
-import androidx.recyclerview.widget.GridLayoutManager;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
-import android.content.Context;
 import android.os.Bundle;
+import android.view.View;
+import android.widget.Toast;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -51,9 +49,27 @@ public class MainActivity extends AppCompatActivity {
 //        mRecyclerView.addItemDecoration(new RecycleViewDivider(
 //                this, LinearLayoutManager.HORIZONTAL, 3, getResources().getColor(R.color.colorPrimaryDark)));
 
-
         //设置adapter关联的list
         mRecyclerAdapter = new RecyclerAdapter(this, mList);
+
+        //item单击
+        mRecyclerAdapter.setmOnItemClickListener(new RecyclerAdapter.OnItemClickListener() {
+            @Override
+            public void onItemClick(View view, int position) {
+                Toast.makeText(MainActivity.this,"点击了："+position,Toast.LENGTH_SHORT).show();
+
+            }
+        });
+
+        //item长按监听
+        mRecyclerAdapter.setmOnItemLongClickListener(new RecyclerAdapter.OnItemLongClickListener() {
+            @Override
+            public void onItemLongClick(View view, int position) {
+                Toast.makeText(MainActivity.this,"长点击了："+position,Toast.LENGTH_SHORT).show();
+
+            }
+        });
+
         //数据更新
         mRecyclerAdapter.notifyDataSetChanged();
         //关联adapter
