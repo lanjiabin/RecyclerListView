@@ -39,10 +39,19 @@ public class MainActivity extends AppCompatActivity {
         mRecyclerView.setLayoutManager(new LinearLayoutManager(this));
         //设置item增加和删除时的动画，这里设置默认动画
         mRecyclerView.setItemAnimator(new DefaultItemAnimator());
-        DividerItemDecoration divider=new DividerItemDecoration(this,DividerItemDecoration.VERTICAL);
-        divider.setDrawable(ContextCompat.getDrawable(this,R.drawable.recyclerview_divideritem));
-        //添加Android自定分割线
-        mRecyclerView.addItemDecoration(divider);
+
+        //1.添加默认分割线：高度为2px，颜色为灰色
+        mRecyclerView.addItemDecoration(new RecycleViewDivider(this, LinearLayoutManager.HORIZONTAL));
+//
+//        //2.添加自定义分割线：可自定义分割线drawable
+//        mRecyclerView.addItemDecoration(new RecycleViewDivider(
+//                this, LinearLayoutManager.HORIZONTAL, R.drawable.recyclerview_divideritem));
+//
+//        //3.添加自定义分割线：可自定义分割线高度和颜色
+//        mRecyclerView.addItemDecoration(new RecycleViewDivider(
+//                this, LinearLayoutManager.HORIZONTAL, 3, getResources().getColor(R.color.colorPrimaryDark)));
+
+
         //设置adapter关联的list
         mRecyclerAdapter = new RecyclerAdapter(this, mList);
         //数据更新
