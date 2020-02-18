@@ -2,6 +2,7 @@ package com.lanjiabin.recyclerlistview;
 
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.recyclerview.widget.DefaultItemAnimator;
+import androidx.recyclerview.widget.GridLayoutManager;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
@@ -31,8 +32,8 @@ public class MainActivity extends AppCompatActivity {
         }
         //布局关联
         mRecyclerView = findViewById(R.id.recyclerListView);
-        //设置布局方向-水平布局-反转
-        mRecyclerView.setLayoutManager(new LinearLayoutManager(this, LinearLayoutManager.HORIZONTAL,true));
+        //设置布局方向-表格布局
+        mRecyclerView.setLayoutManager(new GridLayoutManager(this,5));
         //设置item增加和删除时的动画，这里设置默认动画
         mRecyclerView.setItemAnimator(new DefaultItemAnimator());
         //设置adapter关联的list
