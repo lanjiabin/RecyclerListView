@@ -2,6 +2,7 @@ package com.lanjiabin.recyclerlistview;
 
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.recyclerview.widget.DefaultItemAnimator;
+import androidx.recyclerview.widget.DividerItemDecoration;
 import androidx.recyclerview.widget.GridLayoutManager;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
@@ -36,6 +37,8 @@ public class MainActivity extends AppCompatActivity {
         mRecyclerView.setLayoutManager(new LinearLayoutManager(this));
         //设置item增加和删除时的动画，这里设置默认动画
         mRecyclerView.setItemAnimator(new DefaultItemAnimator());
+        //添加Android自带的分割线
+        mRecyclerView.addItemDecoration(new DividerItemDecoration(this,DividerItemDecoration.VERTICAL));
         //设置adapter关联的list
         mRecyclerAdapter = new RecyclerAdapter(this, mList);
         //数据更新
