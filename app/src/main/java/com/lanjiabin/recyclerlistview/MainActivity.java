@@ -32,7 +32,7 @@ public class MainActivity extends AppCompatActivity {
         }
         //布局关联
         mRecyclerView = findViewById(R.id.recyclerListView);
-        //设置布局方向
+        //设置布局方向-默认布局
         mRecyclerView.setLayoutManager(new LinearLayoutManager(this));
         //设置item增加和删除时的动画，这里设置默认动画
         mRecyclerView.setItemAnimator(new DefaultItemAnimator());
