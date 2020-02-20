@@ -1,3 +1,5 @@
 <resources>
     <string name="app_name">RecyclerListView</string>
+    <string name="header">header头部</string>
+    <string name="footer">footer尾部</string>
 </resources>
